@@ -196,6 +196,9 @@ void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
         // Display a message
         cout << " --- Villager not found! --- " << endl;
     }
+
+    // Enter a new line
+    cout << endl;
 }
 
 void decreaseFriendship(map<string, tuple<int, string, string>>& villagers)
@@ -229,6 +232,9 @@ void decreaseFriendship(map<string, tuple<int, string, string>>& villagers)
         // Display a message
         cout << " --- Villager not found! --- " << endl;
     }
+
+    // Enter a new line
+    cout << endl;
 }
 
 void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
@@ -255,6 +261,9 @@ void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
         // Display a message
         cout << " --- Villager not found! --- " << endl;
     }
+
+    // Enter a new line
+    cout << endl;
 }
 
 void displayVillagers(const map<string, tuple<int, string, string>>& villagers)
@@ -276,4 +285,7 @@ void displayVillagers(const map<string, tuple<int, string, string>>& villagers)
         // Enter a new line
         cout << endl;
     }
+
+    // Enter a new line
+    cout << endl;
 }
