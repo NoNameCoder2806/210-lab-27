@@ -175,8 +175,86 @@ void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
     cin >> name;
     cin.ignore(1000, 10);
 
+    // Declare an iterator and use find() to search for the villager
+    auto it = villagers.find(name);
+
     // Check if the name exists
-    if (villagers.find(name))
+    if (it != villagers.end())
+    {
+        // Check if the friendship level is maxed or not (level 10)
+        if (get<0>(it->second) < MAX_FRIENDSHIP_LEVEL)
+        {
+            // Increase the friendship level
+            get<0>(it->second)++;
+        }
+
+        // Display a message
+        cout << " --- " << it->first << " friendship level increased! --- " << endl;
+    }
+    else
+    {
+        // Display a message
+        cout << " --- Villager not found! --- " << endl;
+    }
+}
+
+void decreaseFriendship(map<string, tuple<int, string, string>>& villagers)
+{
+    // Declare a variable to store the villager's name
+    string name = "";
+
+    // Prompt the user to enter the villager's name
+    cout << " - Please enter the name of the Villager: ";
+    cin >> name;
+    cin.ignore(1000, 10);
+
+    // Declare an iterator and use find() to search for the villager
+    auto it = villagers.find(name);
+
+    // Check if the name exists
+    if (it != villagers.end())
+    {
+        // Check if the friendship level is positive or not (> level 0)
+        if (get<0>(it->second) > MIN_FRIENDSHIP_LEVEL)
+        {
+            // Decrease the friendship level
+            get<0>(it->second)--;
+        }
+
+        // Display a message
+        cout << " --- " << it->first << " friendship level decreased! --- " << endl;
+    }
+    else
+    {
+        // Display a message
+        cout << " --- Villager not found! --- " << endl;
+    }
+}
+
+void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
+{
+    // Declare a variable to store the villager's name
+    string name = "";
+
+    // Prompt the user to enter the villager's name
+    cout << " - Please enter the name of the Villager: ";
+    cin >> name;
+    cin.ignore(1000, 10);
+
+    // Declare an iterator and use find() to search for the villager
+    auto it = villagers.find(name);
+
+    // Check if the name exists
+    if (it != villagers.end())
+    {
+        // Display a message
+        cout << " --- Villager found! --- " << endl;
+    }
+    else
+    {
+        // Display a message
+        cout << " --- Villager not found! --- " << endl;
+    }
 }
 
 void displayVillagers(const map<string, tuple<int, string, string>>& villagers)
