@@ -14,6 +14,9 @@ const int MIN_FRIENDSHIP_LEVEL = 0;
 const int MAX_FRIENDSHIP_LEVEL = 10;
 const int DEFAULT_FRIENDSHIP_LEVEL = 5;
 
+// Function implementations
+
+
 // Main function
 int main()
 {
