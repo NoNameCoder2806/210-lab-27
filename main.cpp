@@ -28,7 +28,7 @@ int main()
     villagers.insert({"Marshal", make_tuple(DEFAULT_FRIENDSHIP_LEVEL, "Squirrel", "Sulky!")});
 
     // access the map using a range-based for loop
-    cout << "Villagers and their favorite colors (range-based for loop):" << endl;
+    cout << "Villagers and their information (range-based for loop):" << endl;
     for (auto pair : villagers)
     {
         cout << pair.first << " [";
@@ -39,15 +39,14 @@ int main()
     }
 
     // access the map using iterators
-    cout << "\nVillagers and their favorite colors (iterators):" << endl;
+    cout << "\nVillagers and their information (iterators):" << endl;
     for (map<string, tuple<int, string, string>>::iterator it = villagers.begin(); 
                                                it != villagers.end(); ++it)
     {
-        cout << it->first << ": ";
-        for (auto color : it->second)
-        {
-            cout << color << " ";
-        }
+        cout << it->first << " [";
+        cout << get<0>(it->second) << ", ";
+        cout << get<1>(it->second) << ", ";
+        cout << get<2>(it->second) << "]";
         cout << endl;
     }
 
@@ -60,11 +59,10 @@ int main()
     if (it != villagers.end())    // the iterator points to beyond the end of the map
                                        // if searchKey is not found
     {
-        cout << "\nFound " << searchKey << "'s favorite colors: ";
-        for (auto color : it->second)  // range loop to traverse the value/vector
-        {
-            cout << color << " ";
-        }
+        cout << "\nFound " << searchKey << "'s information: " << endl;
+        cout << " - Friendship level: " << get<0>(it->second) << endl;
+        cout << " - Species: " << get<1>(it->second) << endl;
+        cout << " - Catchphrase: " << get<2>(it->second) << endl;
         cout << endl;
     }
     else
