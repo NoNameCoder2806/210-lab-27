@@ -5,19 +5,25 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <tuple>
+#include <string>
 using namespace std;
+
+// Constants
+const int MIN_FRIENDSHIP_LEVEL = 0;
+const int MAX_FRIENDSHIP_LEVEL = 10;
+const int DEFAULT_FRIENDSHIP_LEVEL = 5;
 
 // Main function
 int main()
 {
-    // declarations
-    map<string, vector<string>> villagerColors;
+    // Declare a map to store villagers
+    map<string, tuple<int, string, string>> villagers;
 
-    // insert elements into the map
-    // note how the right-hand side of the assignment are the vector elements
-    villagerColors["Audie"] = {"Orange", "Yellow", "Red"};
-    villagerColors["Raymond"] = {"Black", "Gray", "White"};
-    villagerColors.insert({"Marshal", {"Blue", "White", "Black"}});
+    // Insert elements into the map, use make_tuple() to turn the data into tuples
+    villagers["Audie"] = make_tuple(DEFAULT_FRIENDSHIP_LEVEL, "Yellow", "Red");
+    villagers["Raymond"] = make_tuple(DEFAULT_FRIENDSHIP_LEVEL, "Gray", "White");
+    villagers.insert({"Marshal", make_tuple(DEFAULT_FRIENDSHIP_LEVEL, "White", "Black")});
 
     // access the map using a range-based for loop
     cout << "Villagers and their favorite colors (range-based for loop):" << endl;
