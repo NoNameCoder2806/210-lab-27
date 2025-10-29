@@ -13,9 +13,15 @@ using namespace std;
 const int MIN_FRIENDSHIP_LEVEL = 0;
 const int MAX_FRIENDSHIP_LEVEL = 10;
 const int DEFAULT_FRIENDSHIP_LEVEL = 5;
+const int MIN_CHOICE = 1;
+const int MAX_CHOICE = 4;
 
 // Function implementations
-
+void displayMenu();
+void increaseFriendship(map<string, tuple<int, string, string>>& villagers);
+void decreaseFriendship(map<string, tuple<int, string, string>>& villagers);
+void searchForVillager(map<string, tuple<int, string, string>>& villagers);
+void displayVillagers(map<string, tuple<int, string, string>>& villagers);
 
 // Main function
 int main()
@@ -29,6 +35,64 @@ int main()
 
     // Insert another element
     villagers.insert({"Marshal", make_tuple(DEFAULT_FRIENDSHIP_LEVEL, "Squirrel", "Sulky!")});
+
+    // Program loop
+    while (true)
+    {
+        // Display the menu
+        displayMenu();
+
+        // Declare an int variable to store the user's choice
+        int choice = 0;
+
+        // Prompt user to enter their choice
+        cout << " - Enter your choice: ";
+        cin >> choice;
+        cin.ignore(1000, 10);
+
+        // Choice input validation
+        while (choice < MIN_CHOICE || choice > MAX_CHOICE)
+        {
+            // Prompt user to enter a new choice
+            cout << "Invalid! Please enter a valid choice (1-4): ";
+            cin >> choice;
+            cin.ignore(1000, 10);
+        }
+
+        // Switch case for the choice
+        switch(choice)
+        {
+            // Increase Friendship
+            case 1:
+            {
+                increaseFriendship(villagers);
+
+                break;
+            }
+
+            // Decrease Friendship
+            case 2:
+            {
+                decreaseFriendship(villagers);
+
+                break;
+            }
+
+            // Search for Villager
+            case 3:
+            {
+                searchForVillager(villagers);
+
+                break;
+            }
+
+            // Exit
+            case 4:
+            {
+                break;
+            }
+        }
+    }
 
     // access the map using a range-based for loop
     cout << "Villagers and their information (range-based for loop):" << endl;
@@ -79,4 +143,14 @@ int main()
     cout << "Size after clear: " << villagers.size() << endl;
 
     return 0;
+}
+
+// Function implementations
+void displayMenu()
+{
+    // Display the menu
+    cout << "1. Increase Friendship" << endl;
+    cout << "2. Decrease Friendship" << endl;
+    cout << "3. Search for Villager" << endl;
+    cout << "4. Exit" << endl;
 }
