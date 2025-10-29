@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "ostream": "cpp"
     }
 }
