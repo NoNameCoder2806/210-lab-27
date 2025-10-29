@@ -18,6 +18,8 @@ const int MAX_CHOICE = 4;
 
 // Function implementations
 void displayMenu();
+void addVillager();
+void deleteVillager();
 void increaseFriendship(map<string, tuple<int, string, string>>& villagers);
 void decreaseFriendship(map<string, tuple<int, string, string>>& villagers);
 void searchForVillager(const map<string, tuple<int, string, string>>& villagers);
@@ -255,6 +257,14 @@ void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
     {
         // Display a message
         cout << " --- Villager found! --- " << endl;
+
+        // Display the villager's name
+        cout << it->first << " [";
+
+        // Display the villager's other details
+        cout << get<0>(it->second) << ", ";
+        cout << get<1>(it->second) << ", ";
+        cout << get<2>(it->second) << "]";
     }
     else
     {
