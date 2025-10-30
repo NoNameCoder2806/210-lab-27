@@ -14,12 +14,12 @@ const int MIN_FRIENDSHIP_LEVEL = 0;
 const int MAX_FRIENDSHIP_LEVEL = 10;
 const int DEFAULT_FRIENDSHIP_LEVEL = 5;
 const int MIN_CHOICE = 1;
-const int MAX_CHOICE = 4;
+const int MAX_CHOICE = 6;
 
 // Function implementations
 void displayMenu();
-void addVillager();
-void deleteVillager();
+void addVillager(map<string, tuple<int, string, string>>& villagers);
+void deleteVillager(map<string, tuple<int, string, string>>& villagers);
 void increaseFriendship(map<string, tuple<int, string, string>>& villagers);
 void decreaseFriendship(map<string, tuple<int, string, string>>& villagers);
 void searchForVillager(const map<string, tuple<int, string, string>>& villagers);
@@ -64,8 +64,26 @@ int main()
         // Switch case for the choice
         switch(choice)
         {
-            // Increase Friendship
+            // Add Villager
             case 1:
+            {
+                // Call the addVillager() function
+                addVillager(villagers);
+
+                break;
+            }
+
+            // Delete Villager
+            case 2:
+            {
+                // Call the deleteVillager() function
+                deleteVillager(villagers);
+
+                break;
+            }
+
+            // Increase Friendship
+            case 3:
             {
                 // Call the increaseFriendship() function
                 increaseFriendship(villagers);
@@ -74,7 +92,7 @@ int main()
             }
 
             // Decrease Friendship
-            case 2:
+            case 4:
             {
                 // Call the decreaseFriendship() function
                 decreaseFriendship(villagers);
@@ -83,7 +101,7 @@ int main()
             }
 
             // Search for Villager
-            case 3:
+            case 5:
             {
                 // Call the searchForVillager() function
                 searchForVillager(villagers);
@@ -92,7 +110,7 @@ int main()
             }
 
             // Exit
-            case 4:
+            case 6:
             {
                 // Display a message
                 cout << "Exiting the program... Thank you for using!" << endl;
@@ -161,10 +179,12 @@ int main()
 void displayMenu()
 {
     // Display the menu
-    cout << "1. Increase Friendship" << endl;
-    cout << "2. Decrease Friendship" << endl;
-    cout << "3. Search for Villager" << endl;
-    cout << "4. Exit" << endl;
+    cout << "1. Add Villager" << endl;
+    cout << "2. Delete Villager" << endl;
+    cout << "3. Increase Friendship" << endl;
+    cout << "4. Decrease Friendship" << endl;
+    cout << "5. Search for Villager" << endl;
+    cout << "6. Exit" << endl;
 }
 
 void addVillager(map<string, tuple<int, string, string>>& villagers)
@@ -221,13 +241,68 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
         cout << " --- Error! The species cannot be empty! --- " << endl;
 
         // Prompt the user to enter a new species
-        cout << " - Catchphrase: ";
+        cout << " - Please enter a new species: ";
+        cin >> catchphrase;
+        cin.ignore(1000, 10);
+    }
+
+    // Prompt the user to enter the villager's catchphrase
+    cout << " - Catchphrase: ";
+    cin >> catchphrase;
+    cin.ignore(1000, 10);
+
+    // Validate the input
+    while (catchphrase.length() == 0)
+    {
+        // Display an error message
+        cout << " --- Error! The catchphrase cannot be empty! --- " << endl;
+
+        // Prompt the user to enter a new catchphrase
+        cout << " - Please enter a new catchphrase: ";
         cin >> catchphrase;
         cin.ignore(1000, 10);
     }
 
     // Insert the data into the map
-    villagers.insert(name, <>)
+    villagers.insert({name, make_tuple(friendshipLevel, species, catchphrase)});
+
+    // Display a message
+    cout << " --- " << name << " is added! --- " << endl;
+    
+    // Enter a new line
+    cout << endl;
+}
+
+void deleteVillager(map<string, tuple<int, string, string>>& villagers)
+{
+    // Declare a variable to store the villager's name
+    string name;
+
+    // Prompt the user to enter the villager's name
+    cout << " - Please enter the name of the Villager: ";
+    cin >> name;
+    cin.ignore(1000, 10);
+
+    // Declare an iterator and use find() to search for the villager
+    auto it = villagers.find(name);
+
+    // Check if the name exists
+    if (it != villagers.end())
+    {
+        // Erase the villager from the map
+        villagers.erase(name);
+
+        // Display a message
+        cout << " --- " << it->first << " is deleted! --- " << endl;
+    }
+    else
+    {
+        // Display a message
+        cout << " --- Villager not found! --- " << endl;
+    }
+
+    // Enter a new line
+    cout << endl;
 }
 
 void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
