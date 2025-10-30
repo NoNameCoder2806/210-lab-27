@@ -128,9 +128,16 @@ int main()
 }
 
 // Function implementations
+/*
+    displayMenu()
+    Display the menu of operations to the console
+    Arguments: none
+    Return: none
+*/
 void displayMenu()
 {
     // Display the menu
+    cout << "===== Villager Menu =====" << endl;
     cout << "1. Add Villager" << endl;
     cout << "2. Delete Villager" << endl;
     cout << "3. Increase Friendship" << endl;
@@ -139,6 +146,13 @@ void displayMenu()
     cout << "6. Exit" << endl;
 }
 
+/*
+    addVillager()
+    Add a Villager to the map
+    Arguments: 
+        - villagers: reference to the map that stores all the Villagers
+    Return: none
+*/
 void addVillager(map<string, tuple<int, string, string>>& villagers)
 {
     // Declare variables to store the villager's information
@@ -219,6 +233,13 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
     cout << endl;
 }
 
+/*
+    deleteVillager()
+    Delete a Villager from the map
+    Arguments: 
+        - villagers: reference to the map that stores all the Villagers
+    Return: none
+*/
 void deleteVillager(map<string, tuple<int, string, string>>& villagers)
 {
     // Declare a variable to store the villager's name
@@ -250,6 +271,13 @@ void deleteVillager(map<string, tuple<int, string, string>>& villagers)
     cout << endl;
 }
 
+/*
+    increaseFriendship()
+    Increase the friendship level of a Villager in the map
+    Arguments: 
+        - villagers: reference to the map that stores all the Villagers
+    Return: none
+*/
 void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
 {
     // Declare a variable to store the villager's name
@@ -285,6 +313,13 @@ void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
     cout << endl;
 }
 
+/*
+    decreaseFriendship()
+    Decrease the friendship level of a Villager in the map
+    Arguments: 
+        - villagers: reference to the map that stores all the Villagers
+    Return: none
+*/
 void decreaseFriendship(map<string, tuple<int, string, string>>& villagers)
 {
     // Declare a variable to store the villager's name
@@ -320,6 +355,13 @@ void decreaseFriendship(map<string, tuple<int, string, string>>& villagers)
     cout << endl;
 }
 
+/*
+    searchForVillager()
+    Search for a Villager in the map by name
+    Arguments: 
+        - villagers: const reference to the map that stores all the Villagers
+    Return: none
+*/
 void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
 {
     // Declare a variable to store the villager's name
@@ -359,6 +401,13 @@ void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
     cout << endl;
 }
 
+/*
+    displayVillagers()
+    Display all the Villagers in the map
+    Arguments: 
+        - villagers: const reference to the map that stores all the Villagers
+    Return: none
+*/
 void displayVillagers(const map<string, tuple<int, string, string>>& villagers)
 {
     // Display a message
