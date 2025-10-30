@@ -124,54 +124,6 @@ int main()
         displayVillagers(villagers);
     }
 
-    // access the map using a range-based for loop
-    cout << "Villagers and their information (range-based for loop):" << endl;
-    for (auto pair : villagers)
-    {
-        cout << pair.first << " [";
-        cout << get<0>(pair.second) << ", ";
-        cout << get<1>(pair.second) << ", ";
-        cout << get<2>(pair.second) << "]";
-        cout << endl;
-    }
-
-    // Access the map using iterators
-    cout << "\nVillagers and their information (iterators):" << endl;
-    for (map<string, tuple<int, string, string>>::iterator it = villagers.begin(); 
-                                               it != villagers.end(); ++it)
-    {
-        cout << it->first << " [";
-        cout << get<0>(it->second) << ", ";
-        cout << get<1>(it->second) << ", ";
-        cout << get<2>(it->second) << "]";
-        cout << endl;
-    }
-
-    // Delete an element
-    villagers.erase("Raymond");
-
-    // search for an element using .find() to avoid errors
-    string searchKey = "Audie";
-    auto it = villagers.find(searchKey);
-    if (it != villagers.end())    // the iterator points to beyond the end of the map
-                                  // if searchKey is not found
-    {
-        cout << "\nFound " << searchKey << "'s information: " << endl;
-        cout << " - Friendship level: " << get<0>(it->second) << endl;
-        cout << " - Species: " << get<1>(it->second) << endl;
-        cout << " - Catchphrase: " << get<2>(it->second) << endl;
-        cout << endl;
-    }
-    else
-    {
-        cout << endl << searchKey << " not found." << endl;
-    }
-
-    // Report size, clear, report size again to confirm map operations
-    cout << "\nSize before clear: " << villagers.size() << endl;
-    villagers.clear();
-    cout << "Size after clear: " << villagers.size() << endl;
-
     return 0;
 }
 
@@ -393,6 +345,8 @@ void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
         cout << get<0>(it->second) << ", ";
         cout << get<1>(it->second) << ", ";
         cout << get<2>(it->second) << "]";
+
+        // Enter a new line
         cout << endl;
     }
     else
