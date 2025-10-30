@@ -167,9 +167,67 @@ void displayMenu()
     cout << "4. Exit" << endl;
 }
 
-void addVillager()
+void addVillager(map<string, tuple<int, string, string>>& villagers)
 {
-    
+    // Declare variables to store the villager's information
+    string name;
+    int friendshipLevel;
+    string species;
+    string catchphrase;
+
+    // Prompt user to enter villager's name
+    cout << " - Villager's name: ";
+    cin >> name;
+    cin.ignore(1000, 10);
+
+    // Validate the input
+    while (name.length() == 0)
+    {
+        // Display an error message
+        cout << " --- Error! The name cannot be empty! --- " << endl;
+
+        // Prompt the user to enter a new name
+        cout << " - Please enter a new name: ";
+        cin >> name;
+        cin.ignore(1000, 10);
+    }
+
+    // Prompt the user to enter the villager's friendship level
+    cout << " - Friendship level: ";
+    cin >> friendshipLevel;
+    cin.ignore(1000, 10);
+
+    // Validate the input
+    while (friendshipLevel < MIN_FRIENDSHIP_LEVEL || friendshipLevel > MAX_FRIENDSHIP_LEVEL)
+    {
+        // Display an error message
+        cout << " --- Error! The friendship level must be from 0-10! --- " << endl;
+
+        // Prompt the user to enter a new friendship level
+        cout << " - Please enter a new friendship level: ";
+        cin >> friendshipLevel;
+        cin.ignore(1000, 10);
+    }
+
+    // Prompt the user to enter the villager's species
+    cout << " - Species: ";
+    cin >> species;
+    cin.ignore(1000, 10);
+
+    // Validate the input
+    while (species.length() == 0)
+    {
+        // Display an error message
+        cout << " --- Error! The species cannot be empty! --- " << endl;
+
+        // Prompt the user to enter a new species
+        cout << " - Catchphrase: ";
+        cin >> catchphrase;
+        cin.ignore(1000, 10);
+    }
+
+    // Insert the data into the map
+    villagers.insert(name, <>)
 }
 
 void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
