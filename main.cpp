@@ -197,7 +197,7 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
 
     // Prompt user to enter villager's name
     cout << " - Villager's name: ";
-    cin >> name;
+    getline(cin, name);
     cin.ignore(1000, 10);
 
     // Validate the input
@@ -208,7 +208,7 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
 
         // Prompt the user to enter a new name
         cout << " - Please enter a new name: ";
-        cin >> name;
+        getline(cin, name);
         cin.ignore(1000, 10);
     }
 
@@ -231,7 +231,7 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
 
     // Prompt the user to enter the villager's species
     cout << " - Species: ";
-    cin >> species;
+    getline(cin, species);
     cin.ignore(1000, 10);
 
     // Validate the input
@@ -242,13 +242,13 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
 
         // Prompt the user to enter a new species
         cout << " - Please enter a new species: ";
-        cin >> catchphrase;
+        getline(cin, species);
         cin.ignore(1000, 10);
     }
 
     // Prompt the user to enter the villager's catchphrase
     cout << " - Catchphrase: ";
-    cin >> catchphrase;
+    getline(cin, catchphrase);
     cin.ignore(1000, 10);
 
     // Validate the input
@@ -259,7 +259,7 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
 
         // Prompt the user to enter a new catchphrase
         cout << " - Please enter a new catchphrase: ";
-        cin >> catchphrase;
+        getline(cin, catchphrase);
         cin.ignore(1000, 10);
     }
 

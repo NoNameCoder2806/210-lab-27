@@ -7,6 +7,8 @@
         "utility": "cpp",
         "map": "cpp",
         "xstring": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "string": "cpp",
+        "istream": "cpp"
     }
 }
