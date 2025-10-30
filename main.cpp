@@ -56,7 +56,7 @@ int main()
         while (choice < MIN_CHOICE || choice > MAX_CHOICE)
         {
             // Prompt user to enter a new choice
-            cout << "Invalid! Please enter a valid choice (1-4): ";
+            cout << "Invalid! Please enter a valid choice (1-6): ";
             cin >> choice;
             cin.ignore(1000, 10);
         }
@@ -198,7 +198,6 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
     // Prompt user to enter villager's name
     cout << " - Villager's name: ";
     getline(cin, name);
-    cin.ignore(1000, 10);
 
     // Validate the input
     while (name.length() == 0)
@@ -209,7 +208,6 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
         // Prompt the user to enter a new name
         cout << " - Please enter a new name: ";
         getline(cin, name);
-        cin.ignore(1000, 10);
     }
 
     // Prompt the user to enter the villager's friendship level
@@ -232,7 +230,6 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
     // Prompt the user to enter the villager's species
     cout << " - Species: ";
     getline(cin, species);
-    cin.ignore(1000, 10);
 
     // Validate the input
     while (species.length() == 0)
@@ -243,13 +240,11 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
         // Prompt the user to enter a new species
         cout << " - Please enter a new species: ";
         getline(cin, species);
-        cin.ignore(1000, 10);
     }
 
     // Prompt the user to enter the villager's catchphrase
     cout << " - Catchphrase: ";
     getline(cin, catchphrase);
-    cin.ignore(1000, 10);
 
     // Validate the input
     while (catchphrase.length() == 0)
@@ -260,7 +255,6 @@ void addVillager(map<string, tuple<int, string, string>>& villagers)
         // Prompt the user to enter a new catchphrase
         cout << " - Please enter a new catchphrase: ";
         getline(cin, catchphrase);
-        cin.ignore(1000, 10);
     }
 
     // Insert the data into the map
@@ -280,8 +274,7 @@ void deleteVillager(map<string, tuple<int, string, string>>& villagers)
 
     // Prompt the user to enter the villager's name
     cout << " - Please enter the name of the Villager: ";
-    cin >> name;
-    cin.ignore(1000, 10);
+    getline(cin, name);
 
     // Declare an iterator and use find() to search for the villager
     auto it = villagers.find(name);
@@ -312,8 +305,7 @@ void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
 
     // Prompt the user to enter the villager's name
     cout << " - Please enter the name of the Villager: ";
-    cin >> name;
-    cin.ignore(1000, 10);
+    getline(cin, name);
 
     // Declare an iterator and use find() to search for the villager
     auto it = villagers.find(name);
@@ -348,8 +340,7 @@ void decreaseFriendship(map<string, tuple<int, string, string>>& villagers)
 
     // Prompt the user to enter the villager's name
     cout << " - Please enter the name of the Villager: ";
-    cin >> name;
-    cin.ignore(1000, 10);
+    getline(cin, name);
 
     // Declare an iterator and use find() to search for the villager
     auto it = villagers.find(name);
@@ -384,8 +375,7 @@ void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
 
     // Prompt the user to enter the villager's name
     cout << " - Please enter the name of the Villager: ";
-    cin >> name;
-    cin.ignore(1000, 10);
+    getline(cin, name);
 
     // Declare an iterator and use find() to search for the villager
     auto it = villagers.find(name);
@@ -403,6 +393,7 @@ void searchForVillager(const map<string, tuple<int, string, string>>& villagers)
         cout << get<0>(it->second) << ", ";
         cout << get<1>(it->second) << ", ";
         cout << get<2>(it->second) << "]";
+        cout << endl;
     }
     else
     {
