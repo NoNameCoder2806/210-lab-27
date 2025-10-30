@@ -167,6 +167,11 @@ void displayMenu()
     cout << "4. Exit" << endl;
 }
 
+void addVillager()
+{
+    
+}
+
 void increaseFriendship(map<string, tuple<int, string, string>>& villagers)
 {
     // Declare a variable to store the villager's name
